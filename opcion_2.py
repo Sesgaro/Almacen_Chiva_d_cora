@@ -15,7 +15,7 @@ def llegada_articulos(matrix):
                 break
             except ValueError:
                 print('Error de ingreso. Solo se aceptan numeros enteros.')
-
+        i = matrix[1].index(modelo)
         matrix[2][i] = str(int(matrix[2][i])+unidades) 
         print('Lista actualizada: ')
         for fila in matrix:
