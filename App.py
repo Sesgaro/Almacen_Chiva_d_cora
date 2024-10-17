@@ -130,7 +130,7 @@ def main(page: ft.Page):
                         pass
                         if j<=2:
                             fil.append(matrix[i][j])
-                    
+
                     if matrix[i][0]=='Vendedores':
                         auxven=True
                         opc=False
@@ -139,14 +139,24 @@ def main(page: ft.Page):
                     if opc:
                         matrix_pro.append(fil)
                         fil=[]
-                
+                print(*matrix_ven, sep='\n')
+                x=len(matrix_ven)
+                y=len(matrix_ven[0])
+
+                # for i in range(x):
+                #     for j in range(6):
+                #         try:
+                #             matrix[i][j]=int(matrix_ven[i][j])
+                #         except ValueError:
+                #             pass
+                #         if matrix_ven[i][j]=='':
+                #             matrix_ven[i][j]=0
                 print(*matrix, sep='\n')
                 print()
                 print()
                 
                 print(*matrix_pro, sep='\n')
                 print()
-                print(*matrix_ven, sep='\n')
                 
                 llegada.disabled=False
                 venta.disabled=False
@@ -463,7 +473,8 @@ def main(page: ft.Page):
                 res=matrix_pro[aux][2]-num
                 if res >=0:
                     matrix_pro[aux][2]=res
-                    matrix_ven[aux_emp][aux]+=num
+                    res_v=num+(int(matrix_ven[aux_emp][aux]))
+                    matrix_ven[aux_emp][aux]=res_v
                     page.snack_bar = ft.SnackBar(ft.Text("Cambio realizado, puedes volver para ver los cambios :)"))
                     page.snack_bar.open = True
                     matrix_new=matrix_pro+matrix_ven
